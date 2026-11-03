@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>적정 기술 & 지속 가능한 발전 사례 백과</title>
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --primary-light: #e8f5e9;
+      --bg: #f8faf8;
+      --text: #2c3e50;
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+
+    header { background-color: var(--primary); color: white; padding: 2.5rem 1rem; text-align: center; }
+    header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1rem; opacity: 0.9; }
+
+    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+
+    .controls { display: flex; gap: 10px; margin-bottom: 2rem; flex-wrap: wrap; }
+    .controls input, .controls select { flex: 1; min-width: 200px; padding: 12px 16px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .card { background: var(--card-bg); border-radius: 12px; padding: 1.8rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s; display: flex; flex-direction: column; border-left: 6px solid var(--primary); }
+    .card:hover { transform: translateY(-4px); }
+    
+    .tag { display: inline-block; background-color: var(--primary-light); color: var(--primary); padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 0.8rem; align-self: flex-start; }
+    .card h3 { font-size: 1.25rem; margin-bottom: 0.6rem; color: #1b5e20; }
+    .card p { font-size: 0.95rem; color: #555; flex: 1; margin-bottom: 1.2rem; }
+    .problem { margin-top: auto; font-size: 0.85rem; color: #c62828; background: #ffebee; padding: 8px 12px; border-radius: 6px; font-weight: 500; }
+
+    footer { text-align: center; padding: 2rem; color: #777; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌱 적정 기술 & 지속 가능한 발전 사례 백과</h1>
+    <p>세상을 바꾸는 따뜻한 기술 12가지를 완벽하게 탐색해보세요.</p>
+  </header>
+
+  <div class="container">
+    <div class="controls">
+      <input type="text" id="searchInput" placeholder="사례 이름 또는 키워드 검색..." onkeyup="filterCards()">
+      <select id="categoryFilter" onchange="filterCards()">
+        <option value="">모든 카테고리</option>
+        <option value="식수 / 보건">식수 / 보건</option>
+        <option value="에너지 / 빛">에너지 / 빛</option>
+        <option value="식품 / 농업">식품 / 농업</option>
+        <option value="주거 / 환경">주거 / 환경</option>
+      </select>
+    </div>
+
+    <div class="grid" id="cardGrid">
+      <!-- 1 -->
+      <div class="card" data-category="식수 / 보건" data-title="라이프스트로">
+        <span class="tag">식수 / 보건</span>
+        <h3>🥤 라이프스트로 (LifeStraw)</h3>
+        <p>오염된 물을 즉석에서 휴대하며 정수해 마실 수 있는 빨대형 정수기입니다. 미생물과 박테리아를 99.9% 이상 제거합니다.</p>
+        <div class="problem">🚨 해결: 수인성 전염병 예방</div>
+      </div>
+
+      <!-- 2 -->
+      <div class="card" data-category="식수 / 보건" data-title="Q드럼">
+        <span class="tag">식수 / 보건</span>
+        <h3>🛞 Q드럼 (Q-Drum)</h3>
+        <p>무거운 물통을 쉽게 운반할 수 있도록 굴리는 도넛 모양의 용기입니다. 어린이나 여성들이 편하게 물을 옮기게 돕습니다.</p>
+        <div class="problem">🚨 해결: 척추 질환 및 노동 부담 감소</div>
+      </div>
+
+      <!-- 3 -->
+      <div class="card" data-category="식수 / 보건" data-title="솔라쿠커">
+        <span class="tag">식수 / 보건</span>
+        <h3>☀️ 솔라쿠커 (Solar Cooker)</h3>
+        <p>태양열을 반사·집중시켜 전력이나 땔감 없이 음식을 조리하는 장치입니다.</p>
+        <div class="problem">🚨 해결: 산림 파괴 방지 및 유해 연기 흡입 방지</div>
+      </div>
+
+      <!-- 4 -->
+      <div class="card" data-category="식수 / 보건" data-title="세라믹 필터 정수기">
+        <span class="tag">식수 / 보건</span>
+        <h3>🏺 세라믹 필터 정수기</h3>
+        <p>진흙과 왕겨를 섞어 구운 토기 필터로 미세한 불순물을 걸러내어 깨끗한 식수를 공급합니다.</p>
+        <div class="problem">🚨 해결: 저비용 안전 식수 공급</div>
+      </div>
+
+      <!-- 5 -->
+      <div class="card" data-category="에너지 / 빛" data-title="페트병 모저 램프">
+        <span class="tag">에너지 / 빛</span>
+        <h3>💡 페트병 모저 램프</h3>
+        <p>물과 표백제를 채운 페트병을 지붕에 설치해 태양광 굴절을 이용해 전깃불 없이 내부를 밝히는 친환경 조명입니다.</p>
+        <div class="problem">🚨 해결: 무전력 지역 낮 시간 실내 조명</div>
+      </div>
+
+      <!-- 6 -->
+      <div class="card" data-category="에너지 / 빛" data-title="루시 램프">
+        <span class="tag">에너지 / 빛</span>
+        <h3>🏮 루시 램프 (Luci Light)</h3>
+        <p>태양광으로 충전하는 접이식 튜브형 LED 램프입니다. 가볍고 휴대하기 좋아 야간 활동이나 비상용으로 유용합니다.</p>
+        <div class="problem">🚨 해결: 등유 램프 사용으로 인한 화재 방지</div>
+      </div>
+
+      <!-- 7 -->
+      <div class="card" data-category="에너지 / 빛" data-title="G-Saver">
+        <span class="tag">에너지 / 빛</span>
+        <h3>🔥 G-Saver (온돌 열 저장 장치)</h3>
+        <p>게르마늄 원석 등을 이용해 난방 열을 오랫동안 저장하여 몽골 게르 등의 추위를 이겨내게 돕습니다.</p>
+        <div class="problem">🚨 해결: 난방비 절감 및 매연 감소</div>
+      </div>
+
+      <!-- 8 -->
+      <div class="card" data-category="식품 / 농업" data-title="팟인팟 쿨러">
+        <span class="tag">식품 / 농업</span>
+        <h3>🏺 팟인팟 쿨러 (Pot-in-Pot)</h3>
+        <p>큰 항아리 안에 작은 항아리를 넣고 사이 공간에 젖은 모래를 채워, 수분 증발열로 작동하는 무전력 냉장고입니다.</p>
+        <div class="problem">🚨 해결: 전력 없는 지역의 신선식품 보관</div>
+      </div>
+
+      <!-- 9 -->
+      <div class="card" data-category="식품 / 농업" data-title="머니메이커 펌프">
+        <span class="tag">식품 / 농업</span>
+        <h3>⚙️ 머니메이커 펌프</h3>
+        <p>발로 페달을 밟아 지하수를 끌어올리는 소형 수동 펌프입니다.</p>
+        <div class="problem">🚨 해결: 가뭄 극복 및 농가 소득 증대</div>
+      </div>
+
+      <!-- 10 -->
+      <div class="card" data-category="주거 / 환경" data-title="에코 브릭">
+        <span class="tag">주거 / 환경</span>
+        <h3>🧱 에코 브릭 (Eco-Bricks)</h3>
+        <p>플라스틱 병 안에 비닐 쓰레기를 꽉 채워 단단하게 만든 뒤, 친환경 건축 자재로 재활용하는 기법입니다.</p>
+        <div class="problem">🚨 해결: 플라스틱 쓰레기 처리 및 저비용 건축</div>
+      </div>
+
+      <!-- 11 -->
+      <div class="card" data-category="주거 / 환경" data-title="슈퍼플라이">
+        <span class="tag">주거 / 환경</span>
+        <h3>⛺ 슈퍼플라이 (Super Adobe)</h3>
+        <p>흙을 자루에 담아 나선형으로 쌓아 올리는 주택 건축 기법으로, 지진과 허리케인 등 자연재해에 강합니다.</p>
+        <div class="problem">🚨 해결: 난민 구호 및 안전한 저비용 주거 마련</div>
+      </div>
+
+      <!-- 12 -->
+      <div class="card" data-category="주거 / 환경" data-title="페트병 에어컨">
+        <span class="tag">주거 / 환경</span>
+        <h3>🌬️ 페트병 에어컨 (Eco-Cooler)</h3>
+        <p>잘라낸 페트병을 판자에 끼워 창문에 설치하면, 바람이 좁은 통로를 통과하며 실내 온도를 최대 5도 낮춰줍니다.</p>
+        <div class="problem">🚨 해결: 무전력 지역의 무더위 해소</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 적정기술 웹 앱 프로젝트</p>
+  </footer>
+
+  <script>
+    function filterCards() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const selectedCategory = document.getElementById('categoryFilter').value;
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        const category = card.getAttribute('data-category');
+        const text = card.textContent.toLowerCase();
+
+        const matchesSearch = title.includes(input) || text.includes(input);
+        const matchesCategory = selectedCategory === "" || category === selectedCategory;
+
+        if (matchesSearch && matchesCategory) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
